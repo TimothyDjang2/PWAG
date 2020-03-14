@@ -1,5 +1,6 @@
 package pwag;
 
+import pwag.imagehandling.ImageDictionary;
 import pwag.renderables.Renderable;
 import pwag.renderables.RenderableImage;
 import java.util.ArrayList;
@@ -9,15 +10,19 @@ import java.util.ArrayList;
  */
 public class Engine {
 
-    public Engine() {
+    private Engine() {
 
     }
 
     public void doFrame() {
-        Renderer r = Core.renderer;
         ArrayList<Renderable> renderList = new ArrayList<Renderable>();
-        renderList.add(new RenderableImage(ImagePaths.Tiles.cobblestone));
-        r.renderFrame(renderList);
+        renderList.add(new RenderableImage(ImageDictionary.Tiles.COBBLESTONE));
+        Renderer.getInstance().renderFrame(renderList);
     }
 
+    private static Engine instance = null;
+    public static Engine getInstance() { 
+        if (instance == null) instance = new Engine();
+        return instance;
+    }
 }

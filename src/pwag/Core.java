@@ -1,18 +1,19 @@
 package pwag;
 
+import pwag.imagehandling.ImageDictionary;
+import pwag.world.Tile;
+import pwag.world.WorldGen;
+
 public class Core {
 
-    public static Renderer renderer;
-    public static Engine engine;
+    private static Tile[][] worldArr = {{new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},{new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)}};
+    public static WorldGen world = new WorldGen(worldArr);
 
     public static void main(String[] args) {
         new Core();
     }
 
     public Core() {
-        renderer = new Renderer();
-        engine = new Engine();
-
-        engine.doFrame();
+        Engine.getInstance().doFrame();
     }
 }

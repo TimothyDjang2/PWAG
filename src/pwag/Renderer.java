@@ -27,15 +27,15 @@ public class Renderer {
     private BufferStrategy buffer;
     private Graphics graphics = null;
 
-    public Renderer() {
+    private Renderer() {
         renderpane = new Canvas();
-        renderpane.setSize(480, 360);
+        renderpane.setSize(Constants.WINDOW.WIDTH, Constants.WINDOW.HEIGHT);
         renderpane.setBackground(Color.BLACK);
         renderpane.setIgnoreRepaint(true);
 
         window = new JFrame("Thing");
         window.add(renderpane);
-        window.setSize(480, 360);
+        window.setSize(Constants.WINDOW.WIDTH, Constants.WINDOW.HEIGHT);
         window.setLocation((int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2) - (480 / 2)), (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2) - (360 / 2)));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setIgnoreRepaint(true);
@@ -54,6 +54,12 @@ public class Renderer {
         }
 
         if(!buffer.contentsLost()) buffer.show();
+    }
+
+    private static Renderer instance = null;
+    public static Renderer getInstance() { 
+        if (instance == null) instance = new Renderer();
+        return instance;
     }
 
 }
