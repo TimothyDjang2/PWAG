@@ -15,7 +15,7 @@ public class Player implements Renderable {
 
     @Override
     public void draw(Graphics g) {
-        g.drawImage(ImageDictionary.Entities.PLAYER, Constants.WINDOW.WIDTH - 8, Constants.WINDOW.HEIGHT - 8, null);
+        g.drawImage(ImageDictionary.Entities.PLAYER, (Constants.WINDOW.WIDTH / 2) - 8, (Constants.WINDOW.HEIGHT / 2) - 8, null);
     }
 
 }

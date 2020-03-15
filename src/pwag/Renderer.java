@@ -56,6 +56,10 @@ public class Renderer {
         if(!buffer.contentsLost()) buffer.show();
     }
 
+    public Canvas getCanvas() {
+        return renderpane;
+    }
+
     private static Renderer instance = null;
     public static Renderer getInstance() { 
         if (instance == null) instance = new Renderer();
