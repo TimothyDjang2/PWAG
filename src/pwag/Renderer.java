@@ -13,7 +13,8 @@ import java.awt.image.BufferStrategy;
 
 import java.util.ArrayList;
 
-import pwag.input.Input;
+import pwag.input.KeyInput;
+import pwag.input.MouseInput;
 
 /**
  * Makes the window exist and draws crap on it. The engine feeds it an array of renderable stuff to draw.
@@ -26,6 +27,7 @@ public class Renderer {
     private Graphics graphics = null;
 
     private Renderer() {
+
         renderpane = new Canvas();
         renderpane.setSize(Constants.WINDOW.WIDTH, Constants.WINDOW.HEIGHT);
         renderpane.setBackground(Color.BLACK);
@@ -34,12 +36,15 @@ public class Renderer {
         window = new JFrame("Thing");
         window.add(renderpane);
         window.setSize(Constants.WINDOW.WIDTH, Constants.WINDOW.HEIGHT);
-        window.setLocation((int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2) - (480 / 2)), (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2) - (360 / 2)));
+        window.setLocation((int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2) - (Constants.WINDOW.WIDTH / 2)), (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2) - (Constants.WINDOW.HEIGHT / 2)));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setIgnoreRepaint(true);
-        window.addKeyListener(Input.getInstance());
+        renderpane.addMouseListener(MouseInput.getInstance());
+        renderpane.addKeyListener(KeyInput.getInstance());
         window.setFocusTraversalKeysEnabled(false);
 
+        //window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //window.setUndecorated(true);
         window.setVisible(true);
 
         renderpane.createBufferStrategy(2);

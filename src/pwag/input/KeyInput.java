@@ -5,11 +5,11 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Input implements KeyListener {
+public class KeyInput implements KeyListener {
 
     private Map<Integer, Boolean> keyMap;
 
-    private Input() {
+    private KeyInput() {
         keyMap = new HashMap<>();
     }
 
@@ -33,9 +33,9 @@ public class Input implements KeyListener {
     @Override
     public void keyTyped(KeyEvent event) { }
 
-    private static Input instance;
-    public static Input getInstance() {
-        if (instance == null) { instance = new Input(); }
+    private static KeyInput instance;
+    public static KeyInput getInstance() {
+        if (instance == null) { instance = new KeyInput(); }
         return instance;
     }
     

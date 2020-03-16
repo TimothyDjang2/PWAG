@@ -7,10 +7,10 @@ import pwag.world.WorldGen;
 public class Core {
 
     private static Tile[][] worldArr = {
-        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
-        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
-        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
-        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)}
+        {new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
+        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE)},
+        {new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
+        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE)}
     };
     public static WorldGen world = new WorldGen(worldArr);
 
@@ -25,9 +25,6 @@ public class Core {
     }
 
     public Core() {
-
-        System.out.println(-1 % -16);
-        System.out.println(-1 % 16);
 
         long currentTime;
 

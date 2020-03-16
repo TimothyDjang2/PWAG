@@ -6,7 +6,7 @@ package pwag.imagehandling;
 public class ImagePaths{
     
     public static final String
-        missing = "./images/missing.png";
+        missing = "./image/missing.png";
 
     public static class Entities {
         public static final String
@@ -16,7 +16,8 @@ public class ImagePaths{
     public static class Tiles {
 
         public static final String
-            cobblestone = "./image/tiles/cobblestone.png";
+            cobblestone = "./image/tiles/cobblestone.png",
+            tile = "./image/tiles/tile.png";
 
     }
 

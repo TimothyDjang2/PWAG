@@ -7,8 +7,17 @@ import java.awt.Graphics;
 
 public class Player implements Renderable {
 
-    private double x = 0, y = 0;
+    private double 
+        x = 0, 
+        y = 0, 
+        xVel = 0, 
+        yVel = 0,
+        maxSpeed = 2.5,
+        acceleration = 0.25;
 
+    /**
+     * Pretty much just a data storage class. Might move to Engine to improve performance.  
+    */
     public Player() {
 
     }
@@ -36,6 +45,48 @@ public class Player implements Renderable {
     
     public double getY() {
         return y;
+    }
+
+    public void setVelocity(double xVel, double yVel) {
+        this.xVel = xVel;
+        this.yVel = yVel;
+    }
+
+    public void setXVel(double xVel) {
+        setVelocity(xVel, this.yVel);
+    }
+
+    public void setYVel(double yVel) {
+        setVelocity(this.xVel, yVel);
+    }
+
+    public double getXVel() {
+        return xVel;
+    }
+    
+    public double getYVel() {
+        return yVel;
+    }
+
+    public void updatePosition() {
+        x += xVel;
+        y += yVel;
+    }
+
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public void setMaxSpeed(double speed) {
+        maxSpeed = speed;
+    }
+
+    public double getAcceleration() {
+        return acceleration;
+    }
+
+    public void setAcceleration(double accel) {
+        acceleration = accel;
     }
 
     @Override

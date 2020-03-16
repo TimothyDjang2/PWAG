@@ -10,9 +10,12 @@ import javax.imageio.ImageIO;
  */
 public class ImageDictionary {
 
+    public static final BufferedImage MISSING = loadImage(ImagePaths.missing);
+
     public static class Tiles {
         public static final BufferedImage
-            COBBLESTONE = loadImage(ImagePaths.Tiles.cobblestone);
+            COBBLESTONE = loadImage(ImagePaths.Tiles.cobblestone),
+            TILE = loadImage(ImagePaths.Tiles.tile);
     }
 
     public static class Entities {
