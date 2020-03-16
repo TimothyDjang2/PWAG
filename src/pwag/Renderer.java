@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Canvas;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
@@ -12,10 +11,9 @@ import pwag.renderables.Renderable;
 
 import java.awt.image.BufferStrategy;
 
-import java.io.File;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
+import pwag.input.Input;
 
 /**
  * Makes the window exist and draws crap on it. The engine feeds it an array of renderable stuff to draw.
@@ -39,6 +37,8 @@ public class Renderer {
         window.setLocation((int)((Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2) - (480 / 2)), (int)((Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2) - (360 / 2)));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setIgnoreRepaint(true);
+        window.addKeyListener(Input.getInstance());
+        window.setFocusTraversalKeysEnabled(false);
 
         window.setVisible(true);
 
@@ -48,16 +48,17 @@ public class Renderer {
 
     public void renderFrame(ArrayList<Renderable> renderList) {
         graphics = buffer.getDrawGraphics();
+        graphics.clearRect(0, 0, renderpane.getWidth(), renderpane.getHeight());
 
         for (Renderable renderable : renderList) {
             renderable.draw(graphics);
         }
 
-        if(!buffer.contentsLost()) buffer.show();
-    }
+        if (!buffer.contentsLost()) buffer.show();
 
-    public Canvas getCanvas() {
-        return renderpane;
+        if (graphics != null) {
+            graphics.dispose();
+        }
     }
 
     private static Renderer instance = null;
