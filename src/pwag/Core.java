@@ -4,6 +4,9 @@ import pwag.imagehandling.ImageDictionary;
 import pwag.world.Tile;
 import pwag.world.WorldGen;
 
+/**
+ * Base class that runs all the loops and has the main method in it.
+ */
 public class Core {
 
     private static Tile[][] worldArr = {

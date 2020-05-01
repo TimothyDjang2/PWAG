@@ -13,7 +13,8 @@ import pwag.imagehandling.ImageDictionary;
 import pwag.input.InputMap;
 
 /**
- * Does all the math and calculations and stuff.
+ * Calculates all collisions, handles all key inputs, and figures out which stuff needs to render.
+ * Once that's done, feeds the renderer an array of Renderables to draw.
  */
 public class Engine {
 
@@ -31,6 +32,7 @@ public class Engine {
         
         addWorldMap(renderList);
         renderList.add(player);
+
         Renderer.getInstance().renderFrame(renderList);
     }
 
@@ -49,7 +51,7 @@ public class Engine {
                     renderList.add(new RenderableImage(Core.world.getTile(tileY, tileX).getTile(), (int)((x * 16) - ((player.getX() + ((Math.ceil(Math.abs(player.getX()) / 16) + 16) * 16)) % 16)), (int)((y * 16) - ((player.getY() + ((Math.ceil(Math.abs(player.getY()) / 16) + 16) * 16)) % 16))));
                     // Violent amounts of math. Draws tiles in the correct 16x16 region based on which visible tile we're currently drawing, then
                     // offsets them based on the player's pixel coordinates.
-                    // The funky Math.ceil crap makes sure the transition from 1 to -1 still rolls over to an offset of 15. Rather than going from
+                    // The funky Math.ceil thing makes sure the transition from 1 to -1 still rolls over to an offset of 15. Rather than going from
                     // 1 mod 16 to -1 mod 16, it goes from 1 mod 16 to 16 mod 16. Jank but it works.
                 }
             }

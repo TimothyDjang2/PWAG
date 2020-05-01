@@ -12,7 +12,7 @@ public class Constants {
 
     public static final class RENDERING {
         public static final int
-            TILE_SIZE = 16; // How big to render tiles at scale 1x. Since tiles are square, there's only one number here.
+            TILE_SIZE = 16; // How big (px) to render tiles at scale 1x. Since tiles are square, there's only one number here.
     }
 
 }
