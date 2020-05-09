@@ -19,4 +19,11 @@ public class MathUtils {
         return a;
     }
 
+    /**
+     * Gets the sign of a number.
+     */
+    public static double getSign(double a) {
+        if (a == 0) return 1;
+        return a / Math.abs(a);
+    }
 }

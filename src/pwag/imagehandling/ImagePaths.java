@@ -10,7 +10,8 @@ public class ImagePaths{
 
     public static class Entities {
         public static final String
-            player = "./image/player/priest.png";
+            player = "./image/player/priest.png",
+            hitbox = "./image/player/hitboxTst.png";
     }
 
     public static class Tiles {

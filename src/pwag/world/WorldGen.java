@@ -20,4 +20,10 @@ public class WorldGen {
         return worldArr[x][y];
     }
 
+    public boolean doesTileExist(int x, int y) {
+        if (x < 0 || x > width || y < 0 || y > height) { return false; }
+        if (getTile(0, 0) == null) { return false; }
+        return true;
+    }
+
 }

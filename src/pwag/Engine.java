@@ -21,7 +21,7 @@ public class Engine {
     Player player;
 
     private Engine() {
-        player = new Player();
+        player = new Player(8,8);
     }
 
     public void doFrame() {
@@ -66,6 +66,17 @@ public class Engine {
         if (KeyInput.getInstance().getKeyPressed(InputMap.MOVE_LEFT)) { player.setXVel(MathUtils.clamp(player.getXVel() - player.getAcceleration(), -player.getMaxSpeed(), player.getMaxSpeed())); }
         if (KeyInput.getInstance().getKeyPressed(InputMap.MOVE_RIGHT)) { player.setXVel(MathUtils.clamp(player.getXVel() + player.getAcceleration(), -player.getMaxSpeed(), player.getMaxSpeed())); }
         if (!KeyInput.getInstance().getKeyPressed(InputMap.MOVE_LEFT) && !KeyInput.getInstance().getKeyPressed(InputMap.MOVE_RIGHT) && player.getXVel() != 0) { player.setXVel(MathUtils.inverseClamp(player.getXVel() - ((Math.abs(player.getXVel()) / player.getXVel()) * player.getAcceleration() ), -player.getAcceleration(), player.getAcceleration())); }
+
+        System.out.println("px: " + player.getX() + " pTx: " + (int)Math.floor((player.getX() / 16)));
+        //System.out.println("p@ [" + player.getX() + ", " + player.getY() + "] - testing [" + (int)(((player.getX() + player.getXVel() + (MathUtils.getSign(player.getXVel()) * 8)) / 16) - 1) + ", " + (int)(((player.getY() + player.getYVel() + (MathUtils.getSign(player.getYVel()) * 8)) / 16) - 1) + "]");
+
+        if (!Core.world.doesTileExist((int)((player.getX() / 16) - 1), (int)(((player.getY() + player.getYVel() + (MathUtils.getSign(player.getYVel()) * 8) ) / 16) - 1))) {
+            player.setYVel(0);
+        }
+
+        if (!Core.world.doesTileExist((int)(((player.getX() + player.getXVel() + (MathUtils.getSign(player.getXVel()) * 8)) / 16) - 1), (int)((player.getY() / 16) - 1))) {
+            player.setXVel(0);
+        }
 
         player.updatePosition();
     }

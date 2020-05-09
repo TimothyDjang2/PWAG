@@ -8,13 +8,23 @@ import java.awt.image.BufferedImage;
 public class Tile {
 
     private BufferedImage tile;
+    private boolean isWall; // Can the player walk through this tile, or not?
 
-    public Tile(BufferedImage tile) {
+    public Tile(BufferedImage tile, boolean isWall) {
         this.tile = tile;
+        this.isWall = isWall;
     }
 
     public BufferedImage getTile() {
         return tile;
+    }
+
+    public boolean isWall() {
+        return isWall;
+    }
+
+    public void setWall(boolean state) {
+        isWall = state;
     }
 
 }

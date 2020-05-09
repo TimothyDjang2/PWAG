@@ -12,7 +12,8 @@ public class Constants {
 
     public static final class RENDERING {
         public static final int
-            TILE_SIZE = 16; // How big (px) to render tiles at scale 1x. Since tiles are square, there's only one number here.
+            TILE_SIZE = 16, // How big (px) to render tiles at scale 1x. Since tiles are square, there's only one number here.
+            PLAYER_SIZE = 16; // How big (px) to render the player. Not really sure where I should put this yet. Makes the hitbox go.
     }
 
 }

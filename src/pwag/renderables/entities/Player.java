@@ -22,6 +22,10 @@ public class Player implements Renderable {
 
     }
 
+    public Player(double x, double y) {
+        setPosition(x, y);
+    }
+
     /**
      * Coordinates are measured in pixels for the player. [0, 0] would mean the player is in the very top-left corner of the map.
      * [16, 16] would mean the player is in the very top-left corner of the tile at World[1][1].
@@ -68,6 +72,9 @@ public class Player implements Renderable {
         return yVel;
     }
 
+    //**
+    /* Update the player's x and y position based on its velocity
+    */ 
     public void updatePosition() {
         x += xVel;
         y += yVel;
@@ -91,7 +98,7 @@ public class Player implements Renderable {
 
     @Override
     public void draw(Graphics g) {
-        g.drawImage(ImageDictionary.Entities.PLAYER, (Constants.WINDOW.WIDTH / 2) - 8, (Constants.WINDOW.HEIGHT / 2) - 8, null);
+        g.drawImage(ImageDictionary.Entities.HITBOX, (Constants.WINDOW.WIDTH / 2) - 8, (Constants.WINDOW.HEIGHT / 2) - 8, null);
     }
 
 }

@@ -20,7 +20,8 @@ public class ImageDictionary {
 
     public static class Entities {
         public static final BufferedImage
-            PLAYER = loadImage(ImagePaths.Entities.player);
+            PLAYER = loadImage(ImagePaths.Entities.player),
+            HITBOX = loadImage(ImagePaths.Entities.hitbox);
     }
 
 

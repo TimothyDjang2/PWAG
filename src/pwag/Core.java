@@ -9,13 +9,16 @@ import pwag.world.WorldGen;
  */
 public class Core {
 
-    private static Tile[][] worldArr = {
-        {new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
-        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE)},
-        {new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE)},
-        {new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.COBBLESTONE), new Tile(ImageDictionary.Tiles.TILE), new Tile(ImageDictionary.Tiles.TILE)}
-    };
-    public static WorldGen world = new WorldGen(worldArr);
+    /*private static Tile[][] worldArr = {
+        {new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.COBBLESTONE, false)},
+        {new Tile(ImageDictionary.Tiles.COBBLESTONE, false), new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.TILE, false)},
+        {new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.COBBLESTONE, false), new Tile(ImageDictionary.Tiles.COBBLESTONE, false), new Tile(ImageDictionary.Tiles.COBBLESTONE, false)},
+        {new Tile(ImageDictionary.Tiles.COBBLESTONE, false), new Tile(ImageDictionary.Tiles.COBBLESTONE, false), new Tile(ImageDictionary.Tiles.TILE, false), new Tile(ImageDictionary.Tiles.TILE, false)}
+    };*/
+
+    private static Tile[][] worldArr = new Tile[10][10];
+    
+    public static WorldGen world;
 
     private long lastFrameTime = System.currentTimeMillis();
     private long lastSecondUpdate = lastFrameTime;
@@ -24,6 +27,14 @@ public class Core {
     private long FPS;
 
     public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                worldArr[j][i] = new Tile(ImageDictionary.Tiles.TILE, false);
+            }
+        }
+    
+        world = new WorldGen(worldArr);
+
         new Core();
     }
 
