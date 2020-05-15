@@ -1,6 +1,7 @@
 package pwag;
 
 import pwag.imagehandling.ImageDictionary;
+import pwag.util.MathUtils;
 import pwag.world.Tile;
 import pwag.world.WorldGen;
 
@@ -27,11 +28,18 @@ public class Core {
     private long FPS;
 
     public static void main(String[] args) {
+
+        //Unit tests for MathUtil functions
+        //System.out.println(MathUtils.getDecimal(1.234));
+        //System.out.println(MathUtils.getDecimal(-1.234));
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 worldArr[j][i] = new Tile(ImageDictionary.Tiles.TILE, false);
             }
         }
+
+        //worldArr[4][4] = new Tile(ImageDictionary.Tiles.COBBLESTONE, true);
     
         world = new WorldGen(worldArr);
 

@@ -21,7 +21,7 @@ public class WorldGen {
     }
 
     public boolean doesTileExist(int x, int y) {
-        if (x < 0 || x > width || y < 0 || y > height) { return false; }
+        if (x < 0 || x > width - 1 || y < 0 || y > height - 1) { return false; }
         if (getTile(0, 0) == null) { return false; }
         return true;
     }

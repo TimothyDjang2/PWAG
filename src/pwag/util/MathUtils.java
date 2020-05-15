@@ -26,4 +26,21 @@ public class MathUtils {
         if (a == 0) return 1;
         return a / Math.abs(a);
     }
+
+    /**
+     * Returns the decimal component of a double.
+     * An input of 1.234 would return 0.234.
+     */
+    public static double getDecimal(double a) {
+        return a - smartFloor(a);
+    }
+
+    /**
+     * Makes it so that the floor function doesn't return -2 when I do floor(-1.6).
+     * I'm sick of doing this if-statement thing all the time.
+     */
+    public static double smartFloor(double a) {
+        if (a < 0) return Math.ceil(a);
+        return Math.floor(a);
+    }
 }

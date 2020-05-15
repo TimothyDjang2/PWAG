@@ -12,8 +12,8 @@ public class Player implements Renderable {
         y = 0, 
         xVel = 0, 
         yVel = 0,
-        maxSpeed = 2.5,
-        acceleration = 0.25;
+        maxSpeed = 0.3,
+        acceleration = 0.05;
 
     /**
      * Pretty much just a data storage class. Might move to Engine to improve performance.  
@@ -27,8 +27,8 @@ public class Player implements Renderable {
     }
 
     /**
-     * Coordinates are measured in pixels for the player. [0, 0] would mean the player is in the very top-left corner of the map.
-     * [16, 16] would mean the player is in the very top-left corner of the tile at World[1][1].
+     * Coordinates are measured in percent of tile crossed for the player. [0, 0] would mean the player is in the very top-left corner of the map.
+     * [1, 1] would mean the player is in the very top-left corner of the tile at World[1][1]. Not sure yet if this should be from the center of the player, or the corner.
      */
     public void setPosition(double x, double y) {
         this.x = x;
