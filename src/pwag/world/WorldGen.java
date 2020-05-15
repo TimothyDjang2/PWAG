@@ -2,8 +2,9 @@ package pwag.world;
 
 
 /**
- * Does all the fantastic numbers, math, AND science to generate random dungeon levels.
- * Also does fantastic math and science to generate specific pre-determined areas.
+ * In theory, does all the fantastic numbers, math, AND science to generate random dungeon levels.
+ * Also in theory does fantastic math and science to generate specific pre-determined areas.
+ * In practice, this does none of that stuff yet.
  */
 public class WorldGen {
 
@@ -20,6 +21,7 @@ public class WorldGen {
         return worldArr[x][y];
     }
 
+    //TODO figure out a good seperation between the worldgen class and the world itself.
     public boolean doesTileExist(int x, int y) {
         if (x < 0 || x > width - 1 || y < 0 || y > height - 1) { return false; }
         if (getTile(0, 0) == null) { return false; }

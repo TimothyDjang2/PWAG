@@ -17,7 +17,7 @@ import pwag.input.KeyInput;
 import pwag.input.MouseInput;
 
 /**
- * Makes the window exist and draws crap on it. The engine feeds it an array of renderable stuff to draw.
+ * Makes the window exist and draws pretty pictures on it. The engine feeds it an array of renderable stuff to draw.
  */
 public class Renderer {
 

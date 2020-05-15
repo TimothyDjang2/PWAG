@@ -4,6 +4,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.MouseInfo;
 
+/**
+ * Unused for now.
+ */
 public class MouseInput implements MouseListener {
 
     private boolean mouseDown = false;

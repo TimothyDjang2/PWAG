@@ -1,5 +1,8 @@
 package pwag;
 
+/**
+ * Stores numbers.
+ */
 public class Constants {
 
     public static final class WINDOW {

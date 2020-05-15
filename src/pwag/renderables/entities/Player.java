@@ -28,7 +28,8 @@ public class Player implements Renderable {
 
     /**
      * Coordinates are measured in percent of tile crossed for the player. [0, 0] would mean the player is in the very top-left corner of the map.
-     * [1, 1] would mean the player is in the very top-left corner of the tile at World[1][1]. Not sure yet if this should be from the center of the player, or the corner.
+     * [1, 1] would mean the player is in the very top-left corner of the tile at World[1][1]. Based off of the center of the player, so 0.5, 0.5 puts
+     * you in the center of the first tile.
      */
     public void setPosition(double x, double y) {
         this.x = x;

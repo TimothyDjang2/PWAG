@@ -1,5 +1,8 @@
 package pwag.util;
 
+/**
+ * Useful math functions I desire.
+ */
 public class MathUtils {
 
     /**
@@ -37,7 +40,6 @@ public class MathUtils {
 
     /**
      * Makes it so that the floor function doesn't return -2 when I do floor(-1.6).
-     * I'm sick of doing this if-statement thing all the time.
      */
     public static double smartFloor(double a) {
         if (a < 0) return Math.ceil(a);

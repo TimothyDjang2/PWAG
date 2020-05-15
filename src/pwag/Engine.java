@@ -52,14 +52,7 @@ public class Engine {
                 //System.out.print("Did tile [" + tileX + ", " + tileY + "] ,");
 
                 if (tileX >= 0 && tileX < Core.world.width && tileY >= 0 && tileY < Core.world.height) {
-                    //renderList.add(new RenderableImage(Core.world.getTile(tileY, tileX).getTile(), (int)((x * 16) + (MathUtils.getDecimal(player.getX()) * 16)), (int)((y * 16) + (MathUtils.getDecimal(player.getY()) * 16))));
                     renderList.add(new RenderableImage(Core.world.getTile(tileY, tileX).getTile(), (int)((x * 16) - (MathUtils.getDecimal(player.getX()) * 16) + Constants.RENDERING.TILE_OFFSET_X), (int)((y * 16) - (MathUtils.getDecimal(player.getY()) * 16) + Constants.RENDERING.TILE_OFFSET_Y)));
-                    
-                    
-                    // Violent amounts of math. Draws tiles in the correct 16x16 region based on which visible tile we're currently drawing, then
-                    // offsets them based on the player's pixel coordinates.
-                    // The funky Math.ceil thing makes sure the transition from 1 to -1 still rolls over to an offset of 15. Rather than going from
-                    // 1 mod 16 to -1 mod 16, it goes from 1 mod 16 to 16 mod 16. Jank but it works.
                 }
             }
         }
@@ -76,9 +69,8 @@ public class Engine {
         if (KeyInput.getInstance().getKeyPressed(InputMap.MOVE_RIGHT)) { player.setXVel(MathUtils.clamp(player.getXVel() + player.getAcceleration(), -player.getMaxSpeed(), player.getMaxSpeed())); }
         if (!KeyInput.getInstance().getKeyPressed(InputMap.MOVE_LEFT) && !KeyInput.getInstance().getKeyPressed(InputMap.MOVE_RIGHT) && player.getXVel() != 0) { player.setXVel(MathUtils.inverseClamp(player.getXVel() - ((Math.abs(player.getXVel()) / player.getXVel()) * player.getAcceleration() ), -player.getAcceleration(), player.getAcceleration())); }
 
-        //System.out.println("px: " + player.getX() + " pTx: " + (int)Math.floor(player.getX()) + " TExists?: " + Core.world.doesTileExist((int)(Math.floor(player.getX())), (int)(MathUtils.smartFloor(player.getY()))));
-        //System.out.println("p@ [" + player.getX() + ", " + player.getY() + "] - testing [" + (int)(((player.getX() + player.getXVel() + (MathUtils.getSign(player.getXVel()) * 8)) / 16) - 1) + ", " + (int)(((player.getY() + player.getYVel() + (MathUtils.getSign(player.getYVel()) * 8)) / 16) - 1) + "]");
-
+        //TODO: make the hitbox actually based on a square, rather than the center of the player.
+        // x and y of the tile to check collision for.
         int xCollision = (int)(Math.floor(player.getX() + player.getXVel() + (0.5 * MathUtils.getSign(player.getXVel()))));
         int yCollision = (int)(Math.floor(player.getY() + player.getYVel() + (0.5 * MathUtils.getSign(player.getYVel()))));
 
